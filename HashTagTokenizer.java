@@ -20,19 +20,9 @@ public class HashTagTokenizer {
 	}
 
 	public static boolean existInDictionary(String word, String[] dictionary) {
-		int low = 0;
-		int high = dictionary.length-1;
-		while (low < high) {
-			int med = ((low+high)/2)+1;
-			int diff = word.compareTo(dictionary[med]);
-			if (diff == 0){
+		for(String dictWord : dictionary){
+			if (word.equals(dictWord)){
 				return true;
-			}
-			if (diff > 0){
-				low = med + 1; 
-			}
-			else{
-				high = med -1;
 			}
 		}
 		return false;
